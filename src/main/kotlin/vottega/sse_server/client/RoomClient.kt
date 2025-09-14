@@ -1,5 +1,6 @@
 package vottega.sse_server.client
 
+import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono
@@ -10,6 +11,7 @@ class RoomClient(private val webClientBuilder: WebClient.Builder) {
     webClientBuilder.build()
       .get()
       .uri("/api/room/list")
+      .accept(MediaType.APPLICATION_JSON)
       .retrieve()
       .bodyToMono(RoomListResponseDTO::class.java)
 }
