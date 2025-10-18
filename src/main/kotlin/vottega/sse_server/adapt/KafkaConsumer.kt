@@ -27,8 +27,8 @@ class KafkaConsumer(
 ) {
   private val roomInfoReceiverOptions = getReceiverOptions<RoomAvro>("room")
   private val participantInfoReceiverOptions = getReceiverOptions<ParticipantAvro>("participant")
-  private val voteInfoReceiverOptions = getReceiverOptions<VoteAvro>("vote-info-topic")
-  private val votePaperInfoReceiverOptions = getReceiverOptions<VotePaperAvro>("vote-paper-info-topic")
+  private val voteInfoReceiverOptions = getReceiverOptions<VoteAvro>("vote")
+  private val votePaperInfoReceiverOptions = getReceiverOptions<VotePaperAvro>("vote-paper")
 
   private fun <T> getReceiverOptions(topic: String) = ReceiverOptions.create<String, T>(
     kafkaCommonConfig.commonConsumerConfig()
